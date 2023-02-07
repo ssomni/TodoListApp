@@ -1,7 +1,13 @@
-import React, { useState } from "react";
-import "./App.css";
-import TodoBoard from "./components/TodoBoard";
-import TodoItem from "./components/TodoItem";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Creator from "./page/Creator";
+import Main from "./page/Main";
+import TodoList from "./page/TodoList";
+import TodayQoute from "./page/TodayQoute";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Acodian from "./components/Acodian";
+import { useState } from "react";
 
 /* 1. 인풋창과 버튼 만들기
   => onChange 써서 값을 가져온다
@@ -20,55 +26,24 @@ import TodoItem from "./components/TodoItem";
 3, 아이템 삭제 버튼을 누르면 리스트에서 아이템 삭제 
 import extension */
 
-function App() {
-  // ? 초기값에 비어있는거랑 '' 이랑 다른가?
-  const [inputValue, setInputValue] = useState("");
-  const [todoList, setTodoList] = useState([
-    {
-      id: 1,
-      todo: "리액트만들기",
-    },
-    {
-      id: 2,
-      todo: "투두만들기",
-    },
-  ]);
+export default function App() {
+  const [aco, setAco] = useState(false);
 
-  const submit = (e) => {
-    e.preventDefault();
-    addItem(inputValue);
-  };
-
-  const addItem = (inputValue) => {
-    //아이템 추가 할것
-    //기존의 아이템에 새로 추가할거야
-    const newList = {
-      id: todoList.length + 1,
-      todo: inputValue,
-    };
-    setTodoList([...todoList, newList]);
-    setInputValue("");
-  };
-
-  const handleDel = (id) => {
-    setTodoList((todoList) => todoList.filter((el) => el.id !== id));
+  const openAco = () => {
+    setAco(!aco);
   };
 
   return (
-    <main>
-      <form onSubmit={submit}>
-        <input
-          value={inputValue}
-          type="text"
-          onChange={(event) => {
-            setInputValue(event.target.value);
-          }}
-        />
-        <button>추가</button>
-      </form>
-      <TodoBoard handleDel={handleDel} todoList={todoList} />
-    </main>
+    <BrowserRouter>
+      <Header openAco={openAco} />
+      {aco === true ? <Acodian aco={aco} setAco={setAco} /> : null}
+      <Routes>
+        <Route exact path="/" element={<Main />} />
+        <Route path="/todolist" element={<TodoList />} />
+        <Route path="/todayqoute" element={<TodayQoute />} />
+        <Route path="/creator" element={<Creator />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
-
-export default App;
