@@ -1,41 +1,50 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import TodoBoard from "../components/TodoBoard";
 import styled from "styled-components";
 
 const Main = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   height: 100%;
-  padding: 50px 0px;
-  .todo-item {
-    width: 300px;
-    height: 50px;
-    border: 1px solid skyblue;
-  }
-
-  .todo-delete {
-    width: 50px;
-    height: 25px;
-    background-color: blue;
-    color: aliceblue;
+  padding: 100px 0px;
+  background-color: #f3f3f3;
+  form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 760px;
+    height: 64px;
+    padding: 0px 20px;
+    input {
+      width: 700px;
+      height: 25px;
+    }
   }
 `;
 
 export default function TodoList() {
   // ? 초기값에 비어있는거랑 '' 이랑 다른가?
   const [inputValue, setInputValue] = useState("");
-  const [todoList, setTodoList] = useState([
-    {
-      id: 1,
-      todo: "리액트만들기",
-    },
-    {
-      id: 2,
-      todo: "투두만들기",
-    },
-  ]);
+  const [todoList, setTodoList] = useState([]);
+
+  const nextId = useRef(0);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/todo", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: nextId.current,
+        todo: inputValue,
+      }),
+    });
+  });
 
   const submit = (e) => {
     e.preventDefault();

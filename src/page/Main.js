@@ -22,33 +22,24 @@ import extension */
 const MainLog = styled.div`
   display: flex;
   flex-direction: column;
-
   align-items: center;
   height: 100%;
-  > div {
-    padding: 20px 0px;
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0px 50px 0px;
   }
-  .hidden {
-    display: none;
+  h1 {
+    padding-bottom: 50px;
   }
-  > form {
-    > input {
-      outline-width: 0;
-    }
+  button {
+    padding: 10px 30px;
   }
 `;
 
 function Main() {
-  const [idInput, setIdInput] = useState("");
   const [islogin, setIslogin] = useState(false);
-
-  const submit = (e) => {
-    e.preventDefault();
-    localStorage.setItem("username", idInput);
-    // paintGreetings(username);
-    setIslogin(!islogin);
-    setIdInput("");
-  };
 
   const sdf = () => {
     localStorage.removeItem("username");
@@ -62,7 +53,7 @@ function Main() {
     <MainLog>
       {USERNAME_VALUE ? (
         <div>
-          <div>{USERNAME_VALUE}</div>
+          <h1>HI! &nbsp;&nbsp;{USERNAME_VALUE}</h1>
           <button type="submit" onClick={sdf}>
             LOGOUT
           </button>
