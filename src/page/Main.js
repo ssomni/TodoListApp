@@ -1,4 +1,7 @@
+import { useState } from "react";
 import "../App.css";
+import styled from "styled-components";
+import Login from "../components/Login";
 
 /* 1. 인풋창과 버튼 만들기
   => onChange 써서 값을 가져온다
@@ -16,12 +19,58 @@ import "../App.css";
   
 3, 아이템 삭제 버튼을 누르면 리스트에서 아이템 삭제 
 import extension */
+const MainLog = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  height: 100%;
+  > div {
+    padding: 20px 0px;
+  }
+  .hidden {
+    display: none;
+  }
+  > form {
+    > input {
+      outline-width: 0;
+    }
+  }
+`;
 
 function Main() {
+  const [idInput, setIdInput] = useState("");
+  const [islogin, setIslogin] = useState(false);
+
+  const submit = (e) => {
+    e.preventDefault();
+    localStorage.setItem("username", idInput);
+    // paintGreetings(username);
+    setIslogin(!islogin);
+    setIdInput("");
+  };
+
+  const sdf = () => {
+    localStorage.removeItem("username");
+    setIslogin(!islogin);
+  };
+
+  //localstorage.Value
+  const USERNAME_VALUE = localStorage.getItem("username");
+
   return (
-    <main>
-      <div></div>
-    </main>
+    <MainLog>
+      {USERNAME_VALUE ? (
+        <div>
+          <div>{USERNAME_VALUE}</div>
+          <button type="submit" onClick={sdf}>
+            LOGOUT
+          </button>
+        </div>
+      ) : (
+        <Login setIslogin={setIslogin} islogin={islogin} />
+      )}
+    </MainLog>
   );
 }
 

@@ -1,5 +1,27 @@
 import { useState } from "react";
 import TodoBoard from "../components/TodoBoard";
+import styled from "styled-components";
+
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 50px 0px;
+  .todo-item {
+    width: 300px;
+    height: 50px;
+    border: 1px solid skyblue;
+  }
+
+  .todo-delete {
+    width: 50px;
+    height: 25px;
+    background-color: blue;
+    color: aliceblue;
+  }
+`;
 
 export default function TodoList() {
   // ? 초기값에 비어있는거랑 '' 이랑 다른가?
@@ -36,7 +58,7 @@ export default function TodoList() {
   };
 
   return (
-    <main>
+    <Main>
       <form onSubmit={submit}>
         <input
           value={inputValue}
@@ -48,6 +70,6 @@ export default function TodoList() {
         <button>추가</button>
       </form>
       <TodoBoard handleDel={handleDel} todoList={todoList} />
-    </main>
+    </Main>
   );
 }

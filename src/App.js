@@ -35,15 +35,17 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Header openAco={openAco} />
-      {aco === true ? <Acodian aco={aco} setAco={setAco} /> : null}
-      <Routes>
-        <Route exact path="/" element={<Main />} />
-        <Route path="/todolist" element={<TodoList />} />
-        <Route path="/todayqoute" element={<TodayQoute />} />
-        <Route path="/creator" element={<Creator />} />
-      </Routes>
-      <Footer />
+      <div className="App">
+        <Header openAco={openAco} />
+        {aco === true ? <Acodian aco={aco} setAco={setAco} /> : null}
+        <Routes>
+          <Route exact path="/" element={<Main />} />
+          <Route path="/todolist" element={<TodoList />} />
+          <Route path="/todayqoute" element={<TodayQoute />} />
+          <Route path="/creator" element={<Creator />} />
+        </Routes>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }

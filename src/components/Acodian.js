@@ -6,7 +6,7 @@ const TabCss = styled.div`
   flex-direction: row;
   /* justify-content: space-between; */
   align-items: center;
-  position: relative;
+
   /* padding: 0px 200px; */
   /* gap: 53px; */
 
@@ -17,7 +17,7 @@ const TabCss = styled.div`
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
 `;
 
-export default function Acodian({ aco, setAco }) {
+export default function Acodian() {
   return (
     <div>
       <TabCss>
