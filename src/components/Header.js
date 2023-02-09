@@ -6,6 +6,7 @@ const Headercss = styled.header`
   box-sizing: border-box;
 
   /* Auto layout */
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;

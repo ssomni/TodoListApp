@@ -5,7 +5,6 @@ import styled from "styled-components";
 const TabCdd = styled.div`
   display: flex;
   justify-content: space-between;
-
   width: 100%;
   margin: 0px 200px;
   > a {

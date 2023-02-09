@@ -24,17 +24,31 @@ const MainLog = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100%;
+  background-color: #f3f3f3;
   div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px 0px 50px 0px;
+    padding: 100px 0px 50px 0px;
   }
   h1 {
+    margin-top: 100px;
     padding-bottom: 50px;
+    color: #ffa000;
   }
   button {
-    padding: 10px 30px;
+    border: none;
+    width: 93px;
+    height: 40px;
+    background: #cfc6b6;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #ffa000;
   }
 `;
 

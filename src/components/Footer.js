@@ -10,7 +10,7 @@ const FooterDiv = styled.div`
   width: 100%;
   font-size: 0.5em;
   color: #a5a5a5;
-  position: relative;
+  position: fixed;
   bottom: 0;
 `;
 
