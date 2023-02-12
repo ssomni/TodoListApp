@@ -30,7 +30,7 @@ export default function TodayQuote() {
 
   return (
     <QuoteCss>
-      <h1> TodayQuote</h1>
+      <h1> Today Quote</h1>
       <DayQuotes />
     </QuoteCss>
   );

@@ -12,8 +12,9 @@ export default function TodoBoard({ handleDel, isChecked, handleChecked }) {
     justify-content: space-between;
     align-items: center;
     h1 {
-      margin-top: 50px;
-      margin-bottom: 50px;
+      margin-top: 60px;
+      padding-bottom: 50px;
+      color: #ffa000;
     }
   `;
 
