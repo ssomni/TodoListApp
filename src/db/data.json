@@ -2,11 +2,8 @@
   "todo": [
     {
       "id": 1,
-      "todoConent": "리액트 공부"
-    },
-    {
-      "id": 2,
-      "todoConent": "알고리즘 공부"
+      "todoConent": "리액트 check 기능 구현",
+      "checked": false
     }
   ]
 }

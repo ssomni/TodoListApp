@@ -47,12 +47,8 @@ export default function TodoList() {
 
   const nextId = useRef(0);
 
-  const submit = (e) => {
+  const addItem = (e) => {
     e.preventDefault();
-    addItem(inputValue);
-  };
-
-  const addItem = (inputValue) => {
     fetch("http://localhost:3001/todo", {
       method: "POST",
       headers: {
@@ -61,6 +57,7 @@ export default function TodoList() {
       body: JSON.stringify({
         id: nextId.current,
         todoConent: inputValue,
+        checked: false,
       }),
     })
       .then((data) => {
@@ -90,7 +87,7 @@ export default function TodoList() {
 
   return (
     <Main>
-      <form onSubmit={submit}>
+      <form onSubmit={addItem}>
         <input
           required
           value={inputValue}

@@ -4,7 +4,7 @@ import useFetch from "../hooks/useFetch";
 import TodoItem from "./TodoItem";
 
 //컴포넌트 만들때 항상 <> 감싸줘야함~
-function TodoBoard({ handleDel }) {
+export default function TodoBoard({ handleDel, isChecked, handleChecked }) {
   const data = useFetch("http://localhost:3001/todo");
   const List = styled.div`
     display: flex;
@@ -21,11 +21,14 @@ function TodoBoard({ handleDel }) {
       <h1>Todo List</h1>
 
       {data.map((item) => (
-        <TodoItem key={item.id} item={item} handleDel={handleDel} />
+        <TodoItem
+          key={item.id}
+          item={item}
+          handleDel={handleDel}
+          isChecked={isChecked}
+          handleChecked={handleChecked}
+        />
       ))}
     </List>
   );
 }
-
-//만들었으니 수출 시켜 !
-export default TodoBoard;
