@@ -16,6 +16,7 @@ export default function TodoBoard({ handleDel, isChecked, handleChecked }) {
       margin-bottom: 50px;
     }
   `;
+
   return (
     <List>
       <h1>Todo List</h1>

@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import DayQuotes from "../components/DayQuotes";
 
-export default function TodayQoute() {
-  const Qoute = styled.div`
+export default function TodayQuote() {
+  const QuoteCss = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,12 +29,9 @@ export default function TodayQoute() {
   `;
 
   return (
-    <Qoute>
-      <h1> TodayQoute</h1>
-      <div>
-        이루어질 꿈도 이루어지지 않을 꿈만큼 불확실할 수 있다.
-        <br />- 브렛 버틀러 -
-      </div>
-    </Qoute>
+    <QuoteCss>
+      <h1> TodayQuote</h1>
+      <DayQuotes />
+    </QuoteCss>
   );
 }

@@ -3,10 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Creator from "./page/Creator";
 import Main from "./page/Main";
 import TodoList from "./page/TodoList";
-import TodayQoute from "./page/TodayQoute";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Acodian from "./components/Acodian";
+import TodayQuote from "./page/TodayQuote";
 import { useState } from "react";
 
 /* 1. 인풋창과 버튼 만들기
@@ -41,7 +41,7 @@ export default function App() {
         <Routes>
           <Route exact path="/" element={<Main />} />
           <Route path="/todolist" element={<TodoList />} />
-          <Route path="/todayqoute" element={<TodayQoute />} />
+          <Route path="/todayquote" element={<TodayQuote />} />
           <Route path="/creator" element={<Creator />} />
         </Routes>
         <Footer />

@@ -20,7 +20,7 @@ export default function Tab() {
   return (
     <TabCdd>
       <Link to="/todolist">TodoList</Link>
-      <Link to="/todayqoute">Todayqoute</Link>
+      <Link to="/todayquote">Todayquote</Link>
       <Link to="/creator">Creator</Link>
     </TabCdd>
   );
